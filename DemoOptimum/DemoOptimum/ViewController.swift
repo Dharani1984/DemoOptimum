@@ -21,14 +21,25 @@ class ViewController: UIViewController
     var data: [TreeViewData] = []
     var data1: [TreeViewData] = []
     
-    
     //MARK:  Init & Load
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         displayUI()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+//MARK:  Table View Methods
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //MARK:  Node/Data Functions
+    @objc func ExpandCollapseNode(_ notification: Notification)
+    {
+        self.LoadDisplayArray()
+        self.tableView.reloadData()
     }
     
     func displayUI() {
@@ -42,7 +53,7 @@ class ViewController: UIViewController
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let value = jsonResult["value"] as? [Any] {
                     // do stuff
-                  
+                    
                     self.data = TreeViewLists.LoadInitialData(jsonData: value)
                     nodes = TreeViewLists.LoadInitialNodes(self.data)
                     self.LoadDisplayArray()
@@ -53,21 +64,6 @@ class ViewController: UIViewController
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK:  Node/Data Functions
-    
-    @objc func ExpandCollapseNode(_ notification: Notification)
-    {
-        self.LoadDisplayArray()
-        self.tableView.reloadData()
-    }
-    
-    
     func LoadDisplayArray()
     {
         self.displayArray = [TreeViewNode]()
@@ -80,7 +76,6 @@ class ViewController: UIViewController
             }
         }
     }
-    
     func AddChildrenArray(_ childrenArray: [TreeViewNode])
     {
         for node: TreeViewNode in childrenArray
@@ -95,18 +90,6 @@ class ViewController: UIViewController
             }
         }
     }
-    
-    //MARK:  Table View Methods
-   
-}
-extension String {
-    func jsonData() -> String {
-        let path = Bundle.main.path(forResource: "contents", ofType: "json")
-        return path!
-    }
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
@@ -149,5 +132,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setNeedsDisplay()
         
         return cell
+    }
+}
+extension String {
+    func jsonData() -> String {
+        let path = Bundle.main.path(forResource: "contents", ofType: "json")
+        return path!
     }
 }
