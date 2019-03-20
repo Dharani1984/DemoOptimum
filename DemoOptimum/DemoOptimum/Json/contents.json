@@ -1,0 +1,117 @@
+{
+    "value": [
+        {
+            "level": 0,
+            "name": "Sports",
+            "id": "1",
+            "parentId": "-1",
+            "valid": 1
+        }, 
+        {
+            "level": 0,
+            "name": "Kids",
+            "id": "2",
+            "parentId": "-1",
+            "valid": 1
+        },
+        {
+            "level": 1,
+            "name": "Cricket",
+            "id": "3",
+            "parentId": "1",
+            "valid": 1
+        },
+        {
+            "level": 1,
+            "name": "Badminton",
+            "id": "4",
+            "parentId": "1",
+            "valid": 1
+        },
+        {
+            "level": 2,
+            "name": "Backpacks",
+            "id": "5",
+            "parentId": "3",
+            "valid": 1
+        },
+        {
+            "level": 2,
+            "name": "Rucksacks",
+            "id": "6",
+            "parentId": "3",
+            "valid": 1
+        },
+         {
+             "level": 2,
+             "name": "Racquets",
+             "id": "10",
+             "parentId": "4",
+             "valid": 1
+         },
+         {
+             "level": 2,
+             "name": "Shuttle",
+             "id": "11",
+             "parentId": "4",
+             "valid": 0
+         },
+         {
+             "level": 2,
+             "name": "Nets",
+             "id": "12",
+             "parentId": "4",
+             "valid": 1
+         },
+         {
+             "level": 1,
+             "name": "Cricket",
+             "id": "7",
+             "parentId": "2",
+             "valid": 1
+         },
+         {
+             "level": 1,
+             "name": "Badminton",
+             "id": "8",
+             "parentId": "2",
+             "valid": 1
+         },
+         {
+             "level": 2,
+             "name": "Backpacks",
+             "id": "9",
+             "parentId": "7",
+             "valid": 0
+         },
+         {
+             "level": 2,
+             "name": "Rucksacks",
+             "id": "13",
+             "parentId": "7",
+             "valid": 1
+         },
+         {
+             "level": 2,
+             "name": "Racquets",
+             "id": "14",
+             "parentId": "8",
+             "valid": 1
+         },
+         {
+             "level": 2,
+             "name": "Shuttle",
+             "id": "15",
+             "parentId": "8",
+             "valid": 1
+         },
+         {
+             "level": 2,
+             "name": "Nets",
+             "id": "16",
+             "parentId": "8",
+             "valid": 1
+         }
+         
+    ]
+}
